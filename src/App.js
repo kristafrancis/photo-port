@@ -3,6 +3,15 @@ import Nav from './components/Nav';
 import About from './components/About';
 import Gallery from './components/Gallery';
 
+// function Test(props) {
+//   return(
+//     <div>
+//       <h2>yoyoyoyoyoyo {props.information}</h2>
+//       <button onClick={props.coolFunction}>press</button>
+//     </div>
+//   )
+// }
+
 function App() {
   const [categories] = useState([
     {
@@ -29,6 +38,18 @@ function App() {
       </main>
     </div>
   );
+  // const [count, setCount] = useState(0);
+
+  // const handleClick = () => {
+  //   setCount(count + 1)
+  // }
+
+  // return (
+  //   <div>
+  //     <h1>hello: {count}</h1>
+  //     <Test information={"component"} coolFunction={handleClick}/>
+  //   </div>
+  // )
 }
 
 export default App;
