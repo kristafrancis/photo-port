@@ -1,29 +1,27 @@
-import React, { useState } from 'react';
-import Nav from './components/Nav';
-import About from './components/About';
-import Gallery from './components/Gallery';
-
-// function Test(props) {
-//   return(
-//     <div>
-//       <h2>yoyoyoyoyoyo {props.information}</h2>
-//       <button onClick={props.coolFunction}>press</button>
-//     </div>
-//   )
-// }
+import React, { useState } from "react";
+import Nav from "./components/Nav";
+import About from "./components/About";
+import Gallery from "./components/Gallery";
+import ContactForm from "./components/Contact";
 
 function App() {
   const [categories] = useState([
     {
-      name: 'commercial',
-      description: 'Photos of grocery stores, food trucks, and other commercial projects',
+      name: "commercial",
+      description:
+        "Photos of grocery stores, food trucks, and other commercial projects",
     },
-    { name: 'portraits', description: 'Portraits of people in my life' },
-    { name: 'food', description: 'Delicious delicacies' },
-    { name: 'landscape', description: 'Fields, farmhouses, waterfalls, and the beauty of nature' },
-  ]); 
+    { name: "portraits", description: "Portraits of people in my life" },
+    { name: "food", description: "Delicious delicacies" },
+    {
+      name: "landscape",
+      description: "Fields, farmhouses, waterfalls, and the beauty of nature",
+    },
+  ]);
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
+
+  const [contactSelected, setContactSelected] = useState(false);
 
   return (
     <div>
@@ -31,25 +29,21 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
       <main>
-        <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
+        {!contactSelected ? (
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+          <ContactForm></ContactForm>
+        )}
       </main>
     </div>
   );
-  // const [count, setCount] = useState(0);
-
-  // const handleClick = () => {
-  //   setCount(count + 1)
-  // }
-
-  // return (
-  //   <div>
-  //     <h1>hello: {count}</h1>
-  //     <Test information={"component"} coolFunction={handleClick}/>
-  //   </div>
-  // )
 }
 
 export default App;
